@@ -8,14 +8,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from starlette.responses import FileResponse
 
-from models import WordCountPayload
+from words import routers as words_routers
+
 
 app = FastAPI()
-
-origins = ["*"]
+app.include_router(words_routers.router)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -35,10 +35,5 @@ async def validation_exception_handler(request, exc):
 
 
 @app.get("/")
-async def index():
+async def root():
     return FileResponse("index.html")
-
-
-@app.post("/words/count")
-async def count_words(payload: WordCountPayload):
-    return {"count": len(payload.text.rsplit())}
