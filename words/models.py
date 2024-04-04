@@ -1,5 +1,5 @@
 from pydantic import BaseModel
 
 
-class WordCountPayload(BaseModel):
+class CountTextWordsPayload(BaseModel):
     text: str
