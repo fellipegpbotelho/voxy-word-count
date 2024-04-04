@@ -27,7 +27,10 @@ def test_count_words_return_200_status_code():
     [
         ("text", 1),
         ("short text to be counted", 5),
-        ("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur finibus fringilla. Quisque lacinia a ante sed convallis. Phasellus nec diam euismod, accumsan magna et, dignissim est. Vivamus quis vehicula mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras ultrices semper nisi ut sodales. Sed.", 50),
+        ("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur finibus fringilla. Quisque lacinia "
+         "a ante sed convallis. Phasellus nec diam euismod, accumsan magna et, dignissim est. Vivamus quis vehicula "
+         "mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras "
+         "ultrices semper nisi ut sodales. Sed.", 50),
     ]
 )
 def test_count_words_return_count(text, expected_count):
